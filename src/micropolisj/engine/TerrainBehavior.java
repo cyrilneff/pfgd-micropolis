@@ -120,7 +120,7 @@ class TerrainBehavior extends TileBehavior
 						int t = city.getTile(xx, yy);
 						if (isCombustible(t)
 							|| t == DIRT
-							|| (t >= WOODS5 && t < FLOOD))
+							|| (t >= LASTRIVEDGE && t < FLOOD))
 						{
 							if (isZoneCenter(t)) {
 								city.killZone(xx, yy, t);
