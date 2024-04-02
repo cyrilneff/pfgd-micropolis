@@ -1004,8 +1004,42 @@
 953   misc_animation@0,2016  (conducts)(description=#26)(becomes=954)(onshutdown=820)
 954   misc_animation@0,2032  (conducts)(description=#26)(becomes=955)(onshutdown=820)
 955   misc_animation@0,2048  (conducts)(description=#26)(becomes=952)(onshutdown=820)
+# BEGIN THEATER #
+956   theater@0,0            (conducts)
+957   theater@16,0           (conducts)
+958   theater@32,0           (conducts)
+959   theater@48,0           (conducts)
+960   theater@0,16           (conducts)
+961   theater@16,16    (zone)(conducts)(building=4x4)(behavior=THEATER_EMPTY)(description=#23)
+962   theater@32,16          (conducts)
+963   theater@48,16          (conducts)
+964   theater@0,32           (conducts)
+965   theater@16,32          (conducts)
+966   theater@32,32          (conducts)
+967   theater@48,32          (conducts)
+968   theater@0,48           (conducts)
+969   theater@16,48          (conducts)
+970   theater@32,48          (conducts)
+971   theater@48,48          (conducts)
+# BEGIN THEATER ANIMS #
+972   theater2@0,0           (conducts)
+973   theater2@16,0          (conducts)
+974   theater2@32,0          (conducts)
+975   theater2@48,0          (conducts)
+976   theater2@0,16          (conducts)
+977   theater2@16,16   (zone)(conducts)(building=4x4)(behavior=THEATER_FULL)(description=#23)
+978   theater2@32,16         (conducts)
+979   theater2@48,16         (conducts)
+980   theater2@0,32          (conducts)
+981   theater2@16,32         (conducts)
+982   theater2@32,32         (conducts)
+983   theater2@48,32         (conducts)
+984   theater2@0,48          (conducts)
+985   theater2@16,48         (conducts)
+986   theater2@32,48         (conducts)
+987   theater2@48,48         (conducts)
 # unused #
-956   misc_animation@0,2064
-957   misc_animation@0,2080
-958   misc_animation@0,2096
-959   misc_animation@0,2112
+988   misc_animation@0,2064
+989   misc_animation@0,2080
+990   misc_animation@0,2096
+991   misc_animation@0,2112
