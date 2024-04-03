@@ -41,7 +41,9 @@ class MapScanner extends TileBehavior
 		STADIUM_EMPTY,
 		STADIUM_FULL,
 		AIRPORT,
-		SEAPORT;
+		SEAPORT,
+		THEATER_EMPTY,
+		THEATER_FULL;
 	}
 
 	@Override
@@ -83,6 +85,12 @@ class MapScanner extends TileBehavior
 			return;
 		case SEAPORT:
 			doSeaport();
+			return;
+		case THEATER_EMPTY:
+			doTheaterEmpty();
+			return;
+		case THEATER_FULL:
+			doTheaterFull();
 			return;
 		default:
 			assert false;
@@ -279,6 +287,31 @@ class MapScanner extends TileBehavior
 		}
 	}
 
+	void doTheaterEmpty()
+	{
+		boolean powerOn = checkZonePower();
+		city.theaterCount++;
+		if ((city.cityTime % 16) == 0) {
+			repairZone(THEATER, 4);
+		}
+
+		if (powerOn)
+		{
+			if (((city.cityTime + xpos + ypos) % 32) == 0) {
+				drawTheater(FULLTHEATER);
+				city.setTile(xpos+1,ypos+1, (char)(FULLTHEATER));
+			}
+		}
+	}
+
+	void doTheaterFull()
+	{
+		boolean powerOn = checkZonePower();
+		city.theaterCount++;
+		if (((city.cityTime + xpos + ypos) % 8) == 0) {
+			drawTheater(THEATER);
+		}
+	}
 	void doAirport()
 	{
 		boolean powerOn = checkZonePower();
@@ -936,6 +969,20 @@ class MapScanner extends TileBehavior
 	 * @param zoneCenter either STADIUM or FULLSTADIUM
 	 */
 	void drawStadium(int zoneCenter)
+	{
+		int zoneBase = zoneCenter - 1 - 4;
+
+		for (int y = 0; y < 4; y++)
+		{
+			for (int x = 0; x < 4; x++)
+			{
+				city.setTile(xpos - 1 + x, ypos - 1 + y, (char)zoneBase);
+				zoneBase++;
+			}
+		}
+		city.setTilePower(xpos, ypos, true);
+	}
+	void drawTheater(int zoneCenter)
 	{
 		int zoneBase = zoneCenter - 1 - 4;
 

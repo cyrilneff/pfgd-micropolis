@@ -121,11 +121,12 @@ public class Micropolis
 	int policeCount;
 	int fireStationCount;
 	int stadiumCount;
+	int theaterCount;
 	int coalCount;
 	int nuclearCount;
 	int seaportCount;
 	int airportCount;
-
+	
 	int totalPop;
 	int lastCityPop;
 
@@ -534,6 +535,7 @@ public class Micropolis
 		policeCount = 0;
 		fireStationCount = 0;
 		stadiumCount = 0;
+		theaterCount = 0;
 		coalCount = 0;
 		nuclearCount = 0;
 		seaportCount = 0;
@@ -1467,6 +1469,8 @@ public class Micropolis
 		bb.put("STADIUM_FULL", new MapScanner(this, MapScanner.B.STADIUM_FULL));
 		bb.put("AIRPORT", new MapScanner(this, MapScanner.B.AIRPORT));
 		bb.put("SEAPORT", new MapScanner(this, MapScanner.B.SEAPORT));
+		bb.put("THEATER_EMPTY", new MapScanner(this, MapScanner.B.THEATER_EMPTY));
+		bb.put("THEATER_FULL", new MapScanner(this, MapScanner.B.THEATER_FULL)); 
 
 		this.tileBehaviors = bb;
 	}
@@ -2551,6 +2555,12 @@ public class Micropolis
 		case 22:
 			if (totalZoneCount > 10 && powerCount == 0) {
 				sendMessage(MicropolisMessage.NEED_POWER);
+			}
+			break;
+		case 24:
+			resCap = (resPop > 1000 && theaterCount == 0);
+			if (resCap) {
+				sendMessage(MicropolisMessage.NEED_THEATER);
 			}
 			break;
 		case 26:
