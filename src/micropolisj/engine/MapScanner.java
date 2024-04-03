@@ -297,7 +297,9 @@ class MapScanner extends TileBehavior
 
 		if (powerOn)
 		{
-			if (((city.cityTime + xpos + ypos) % 32) == 0) {
+			int month = (city.cityTime%48)/4;
+			boolean isSummer = (month>3 && month<9);
+			if (isSummer &&((city.cityTime + xpos + ypos) % 4) == 0) {
 				drawTheater(FULLTHEATER);
 				city.setTile(xpos,ypos, (char)(FULLTHEATER));
 			}

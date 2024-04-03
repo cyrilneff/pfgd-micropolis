@@ -1322,7 +1322,7 @@ public class MainWindow extends JFrame
 	{
 		Calendar c = Calendar.getInstance();
 		c.set(1900 + cityTime/48,
-			(cityTime%48)/4,
+			(cityTime%48)/4, //derives month HERE
 			(cityTime%4)*7 + 1
 			);
 
