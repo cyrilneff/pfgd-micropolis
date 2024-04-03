@@ -299,7 +299,7 @@ class MapScanner extends TileBehavior
 		{
 			if (((city.cityTime + xpos + ypos) % 32) == 0) {
 				drawTheater(FULLTHEATER);
-				city.setTile(xpos+1,ypos+1, (char)(FULLTHEATER));
+				city.setTile(xpos,ypos, (char)(FULLTHEATER));
 			}
 		}
 	}
